@@ -1,0 +1,75 @@
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bezpieczeństwo w Programowaniu</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Aspekty Bezpieczeństwa w Programowaniu</h2>
+        <span>Ada Szymańska</span>
+    </div>
+    
+    <!-- Sekcja Szyfrowania -->
+    <div class="container">
+        <!-- Sekcja AES -->
+        <div class="container">
+            <h3>Szyfrowanie AES</h3>
+            <p>AES (Advanced Encryption Standard) to jeden z najbezpieczniejszych algorytmów szyfrowania. 
+                Działa na zasadzie szyfrowania blokowego, gdzie dane są dzielone na bloki o stałej długości (np. 128 bitów) i szyfrowane z użyciem tajnego klucza</p>
+            <input type="text" id="plainText" placeholder="Wpisz dowolny tekst">
+            <button id="encryptBtn">Zaszyfruj AES</button>
+            <p><strong>Zaszyfrowany tekst:</strong> <span id="encryptedText"></span></p>
+        </div>
+
+        <!-- Sekcja RSA -->
+        <div class="container">
+            <h3>Szyfrowanie RSA</h3>
+            <p>RSA to popularny algorytm szyfrowania kluczem publicznym, stosowany w wielu aplikacjach. Działa na zasadzie dwóch kluczy: 
+                publicznego i prywatnego. Klucz publiczny służy do szyfrowania danych, a klucz prywatny do ich odszyfrowywania</p>
+            <input type="text" id="rsaPlainText" placeholder="Wpisz tekst do szyfrowania RSA">
+            <button id="rsaEncryptBtn">Zaszyfruj RSA</button>
+            <p><strong>Zaszyfrowany tekst:</strong> <span id="rsaEncryptedText"></span></p>
+        </div>
+
+    </div>
+
+    <!-- Sekcja Ataków -->
+    <div class="container">
+        <!-- Sekcja Brute-Force -->
+        <div class="container">
+            <h3>Atak Brute-Force</h3>
+            <p>Brute-force polega na sprawdzaniu wszystkich możliwych kombinacji hasła. Można się p
+                rzed nim zabezpieczyć stosując długie hasła i limity prób logowania. Na potrzeby tego kodu zastosowałam limit do 4 znaków, 
+                powyżej tej wartosci, hasła nie są odszyfrowywane</p>
+            <input type="text" id="password" placeholder="Hasło do złamania">
+            <button id="bruteForceBtn">Uruchom atak</button>
+            <p><strong>Wynik:</strong> <span id="bruteResult"></span></p>
+        </div>
+
+        <!-- Sekcja Słownikowy Atak -->
+        <div class="container">
+            <h3>Atak Słownikowy (Dictionary Attack)</h3>
+            <p>Atak słownikowy polega na próbie użycia popularnych haseł lub słów z gotowej listy. Jest to szybki sposób na złamanie prostych haseł.
+                Przykładowe słowa w słowniku: [123456, password, qwerty]
+            </p>
+            <input type="text" id="dictionaryPassword" placeholder="Hasło do złamania">
+            <button id="dictionaryAttackBtn">Uruchom atak</button>
+            <p><strong>Wynik:</strong> <span id="dictionaryResult"></span></p>
+        </div>
+
+        <!-- Sekcja Połączony Atak -->
+        <div class="container">
+            <h3>Połączony Atak (Brute-Force + Słownikowy)</h3>
+            <p>Ten atak łączy metodę słownikową i brute-force. Najpierw sprawdza popularne słowa, a potem przechodzi do brute-force, jeśli słowo nie zostanie znalezione</p>
+            <input type="text" id="combinedPassword" placeholder="Hasło do złamania">
+            <button id="combinedAttackBtn">Uruchom atak</button>
+            <p><strong>Wynik:</strong> <span id="combinedResult"></span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
